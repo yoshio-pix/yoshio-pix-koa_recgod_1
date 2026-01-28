@@ -6,7 +6,9 @@
 
 //##########################################################
 //変更箇所「App.tsx、AppNavigator.tsx」
-let kyoten = '受付'; //本部・本社・岡セラ・大ヶ池
+//運輸・保税・第二・岡本・岡明
+//運・保・二・本・明
+let kyoten = '受付'; //本部・運輸・保税・第二工場・岡セラ本社・岡セラ明石
 let systemmode = '1'; //黄色…N 赤色…1 青色…K
 let addUrl = '';
 // let kyoten = '本部'; //本部・本社・岡セラ・大ヶ池
@@ -34,7 +36,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import React, {useEffect, useState} from 'react';
 import RVW001 from '../screens/RVW001';
 import RVW002 from '../screens/RVW002';
-import RVW003 from '../screens/RVW003';
+// import RVW003 from '../screens/RVW003';
 import RVW004 from '../screens/RVW004';
 // import LVW001 from '../screens/LVW001';
 // import LVW002 from '../screens/LVW002';
@@ -55,16 +57,16 @@ const Stack = createStackNavigator<RootList>();
 //端末チェック処理
 import DeviceInfo from 'react-native-device-info';
 import {useSetRecoilState} from 'recoil';
-const allowedDeviceIds = [
-  '70660eb08b1f2de3', //エミュレータ
-  'd0aa51061feae449', //1号機（親機）
-  '3840515639ad82c6', //2号機
-  '47936ae0a9d77371', //3号機
-  '5f33cb8e25f28d5d', //追加分
-  '32a7cd51def4da0c', //追加分
-  '938aac290e42f3d1', //追加分
-  'b85a85b1d25c8db9', //20240912追加分
-]; // 許可されたデバイスIDのリスト
+// const allowedDeviceIds = [
+//   '70660eb08b1f2de3', //エミュレータ
+//   'd0aa51061feae449', //1号機（親機）
+//   '3840515639ad82c6', //2号機
+//   '47936ae0a9d77371', //3号機
+//   '5f33cb8e25f28d5d', //追加分
+//   '32a7cd51def4da0c', //追加分
+//   '938aac290e42f3d1', //追加分
+//   'b85a85b1d25c8db9', //20240912追加分
+// ]; // 許可されたデバイスIDのリスト
 console.log(DeviceInfo.getUniqueId());
 DeviceInfo.getUniqueId().then(uniqueId => {
   console.log('★', uniqueId);
@@ -163,7 +165,7 @@ const AppNavigator = () => {
           initialRouteName={initialRoute}>
           <Stack.Screen name="RVW001" component={RVW001} />
           <Stack.Screen name="RVW002" component={RVW002} />
-          <Stack.Screen name="RVW003" component={RVW003} />
+          {/* <Stack.Screen name="RVW003" component={RVW003} /> */}
           <Stack.Screen name="RVW004" component={RVW004} />
           {/* <Stack.Screen name="LVW001" component={LVW001} />
           <Stack.Screen name="LVW002" component={LVW002} /> */}
